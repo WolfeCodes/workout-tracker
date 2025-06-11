@@ -19,6 +19,8 @@ function WorkoutForm({ setWorkouts }) {
       date: new Date().toLocaleDateString(), // User-friendly date for display
     };
 
+    setWorkouts((prev) => [newWorkout, ...prev]);
+
     setExercise("");
     setSets("");
     setReps("");
@@ -32,7 +34,7 @@ function WorkoutForm({ setWorkouts }) {
         placeholder="Exercise name"
         value={exercise}
         onChange={(e) => setExercise(e.target.value)}
-        classname="w-full border p=2 rounded"
+        className="w-full border p=2 rounded"
         required
       />
       <input
@@ -40,7 +42,7 @@ function WorkoutForm({ setWorkouts }) {
         placeholder="Sets"
         value={sets}
         onChange={(e) => setSets(e.target.value)}
-        classname="w-full border p=2 rounded"
+        className="w-full border p=2 rounded"
         required
       />
       <input
@@ -48,7 +50,7 @@ function WorkoutForm({ setWorkouts }) {
         placeholder="Reps"
         value={reps}
         onChange={(e) => setReps(e.target.value)}
-        classname="w-full border p=2 rounded"
+        className="w-full border p=2 rounded"
         required
       />
       <input
@@ -56,7 +58,7 @@ function WorkoutForm({ setWorkouts }) {
         placeholder="Weight (lbs)"
         value={weight}
         onChange={(e) => setWeight(e.target.value)}
-        classname="w-full border p=2 rounded"
+        className="w-full border p=2 rounded"
         required
       />
       <button
