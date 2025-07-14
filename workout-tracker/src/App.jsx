@@ -20,7 +20,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 p-6">
-      <div className="max-w-3xl mx-auto bg-white shadow-xl rounded-xl p-6 space-y-6">
+      <div className="max-w-3xl ml-auto mr-0 bg-white shadow-xl rounded-xl p-6 space-y-6">
         <h1 className="text-4xl font-bold text-center text-gray-800">🏋️ Workout Tracker</h1>
 
         {workouts.length > 0 && (
