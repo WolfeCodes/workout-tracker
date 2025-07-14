@@ -19,14 +19,16 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-100 to-gray-200 p-6">
-      <div className="max-w-3xl ml-auto mr-0 bg-white shadow-xl rounded-xl p-6 space-y-6">
-        <h1 className="text-4xl font-bold text-center text-gray-800">🏋️ Workout Tracker</h1>
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-100 via-slate-200 to-gray-100 p-4">
+      <div className="w-full max-w-3xl bg-white rounded-2xl shadow-2xl p-6 space-y-6">
+        <h1 className="text-4xl font-bold text-center text-blue-900 tracking-tight">
+          🏋️ Workout Tracker
+        </h1>
 
         {workouts.length > 0 && (
           <button
             onClick={handleClearAll}
-            className="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded transition"
+            className="bg-red-600 hover:bg-red-700 text-white font-semibold px-4 py-2 rounded transition"
           >
             Clear All Workouts
           </button>
@@ -36,7 +38,7 @@ function App() {
         <WorkoutList workouts={workouts} setWorkouts={setWorkouts} />
 
         <footer className="text-center text-sm text-gray-400 pt-6">
-          Built by Wolfe
+          Built with 💪 by [Your Name]
         </footer>
       </div>
     </div>
