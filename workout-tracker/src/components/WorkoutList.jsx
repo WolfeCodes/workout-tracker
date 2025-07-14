@@ -3,16 +3,20 @@ import WorkoutItem from "./WorkoutItem";
 
 function WorkoutList({ workouts, setWorkouts }) {
   if (workouts.length === 0) {
-    return <p className="text-center text-gray-500">No workouts logged yet.</p>;
+    return (
+      <p className="text-center text-gray-500 text-sm italic">
+        No workouts logged yet.
+      </p>
+    );
   }
 
-  // Handle deleting a workout
+  // Delete handler
   const handleDelete = (idToDelete) => {
     const updated = workouts.filter((w) => w.id !== idToDelete);
     setWorkouts(updated);
   };
 
-  // Handle editing a workout
+  // Edit handler
   const handleEdit = (idToEdit, updatedWorkout) => {
     const updated = workouts.map((w) =>
       w.id === idToEdit ? { ...w, ...updatedWorkout } : w

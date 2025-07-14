@@ -17,7 +17,7 @@ function WorkoutItem({ workout, onDelete, onEdit }) {
 
   if (isEditing) {
     return (
-      <form onSubmit={handleSubmit} className="border p-4 rounded shadow-sm bg-white space-y-2">
+      <form onSubmit={handleSubmit} className="border border-gray-300 p-4 rounded-lg shadow-sm bg-white space-y-2">
         <input
           name="exercise"
           value={formData.exercise}
@@ -25,35 +25,41 @@ function WorkoutItem({ workout, onDelete, onEdit }) {
           className="w-full border p-2 rounded"
           required
         />
-        <input
-          name="sets"
-          type="number"
-          value={formData.sets}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-          required
-        />
-        <input
-          name="reps"
-          type="number"
-          value={formData.reps}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-          required
-        />
-        <input
-          name="weight"
-          type="number"
-          value={formData.weight}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-          required
-        />
+        <div className="grid grid-cols-3 gap-2">
+          <input
+            name="sets"
+            type="number"
+            value={formData.sets}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+            required
+          />
+          <input
+            name="reps"
+            type="number"
+            value={formData.reps}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+            required
+          />
+          <input
+            name="weight"
+            type="number"
+            value={formData.weight}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+            required
+          />
+        </div>
         <div className="flex gap-2">
-          <button type="submit" className="bg-green-600 text-white px-3 py-1 rounded">
+          <button type="submit" className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm">
             Save
           </button>
-          <button onClick={() => setIsEditing(false)} className="bg-gray-400 text-white px-3 py-1 rounded">
+          <button
+            type="button"
+            onClick={() => setIsEditing(false)}
+            className="bg-gray-400 hover:bg-gray-500 text-white px-3 py-1 rounded text-sm"
+          >
             Cancel
           </button>
         </div>
@@ -62,25 +68,25 @@ function WorkoutItem({ workout, onDelete, onEdit }) {
   }
 
   return (
-    <div className="border p-4 rounded shadow-sm bg-white">
+    <div className="border border-gray-300 p-4 rounded-lg shadow-sm bg-white hover:shadow-md transition-shadow">
       <div className="flex justify-between items-start">
         <div>
-          <p className="text-xl font-semibold">{workout.exercise}</p>
-          <p className="text-gray-700">
+          <p className="text-lg font-semibold text-blue-800">{workout.exercise}</p>
+          <p className="text-gray-700 text-sm">
             {workout.sets} sets × {workout.reps} reps @ {workout.weight} lbs
           </p>
-          <p className="text-sm text-gray-500">Logged on: {workout.date}</p>
+          <p className="text-xs text-gray-400">Logged on: {workout.date}</p>
         </div>
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col items-end gap-2">
           <button
             onClick={() => setIsEditing(true)}
-            className="bg-yellow-500 text-white px-3 py-1 rounded text-sm"
+            className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm"
           >
             Edit
           </button>
           <button
             onClick={() => onDelete(workout.id)}
-            className="bg-red-500 text-white px-3 py-1 rounded text-sm"
+            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-sm"
           >
             Delete
           </button>
